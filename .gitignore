@@ -1,7 +1,11 @@
 citbwebenv/*
 citbweb/db.sqlite3
 citbweb/frontend/node_modules/*
-citbweb/frontend/static/frontend/*
+citbweb/frontend/static/frontend/
+
+!citbweb/frontend/static/
+!citbweb/frontend/static/css/
+!citbweb/frontend/static/images/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
