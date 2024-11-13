@@ -1,14 +1,17 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomePage from './HomePage';
+import GamePage from './GamePage';
 
 const App = () => {
   return (
-    <div>
-      <h1>Welcome to the Home Page! Woot!</h1>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/game/:gameId" element={<GamePage />} />
+      </Routes>
+    </Router>
   );
 };
 
-const appDiv = document.getElementById('app');
-const root = ReactDOM.createRoot(appDiv);
-root.render(<App />);
+export default App;

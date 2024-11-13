@@ -1,0 +1,389 @@
+.game-page-container {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    color: white;
+    overflow: auto;
+    display: flex;
+    align-items: flex-start;
+}
+
+.game-page-column-container {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    color: white;
+    overflow: auto;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.game-container {
+    flex: 1;
+}
+
+/* Banner */
+.game-banner-container {
+    width: 100%;
+    height: 5%;
+    background-color: black;
+}
+
+.game-banner {
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-size: 24px;
+    font-family: 'Yatra One', system-ui;
+    padding: 4px;
+    animation: blinkBannerText 2s infinite;
+}
+
+@keyframes blinkBannerText {
+    0% {
+        color: white;
+    }
+    50% {
+        color: wheat; /* Change this to any other color */
+    }
+    100% {
+        color: white;
+    }
+}
+
+/* Logs */
+.log-container {
+    width: 25vw;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    overflow-y: auto;
+}
+
+.game-container, .log-container {
+    /* Make sure both containers stretch to the same height */
+    align-self: stretch;
+}
+
+.logs {
+    font-size: large;
+}
+
+.log {
+    margin-top: 10px;
+}
+
+.log-list li{
+    list-style: none;
+}
+
+.log-list li::before{
+    content: '\f1c0';
+    font-family: 'FontAwesome';
+    margin-right: 5px;
+}
+
+/*Board*/
+.game-board-container {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.game-board-row {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+  
+.game-board-square {
+    position: relative;
+    width: 40px;  /* Adjust as needed */
+    height: 40px; /* Adjust as needed */
+    background-color: red;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;  /* Adjust spacing as needed */
+    font-family: "Yatra One", system-ui;
+    font-weight: 400;
+    font-size: 50px;
+    border: 4px solid;
+    text-shadow:
+        2px 2px 0 #000,  
+        -2px -2px 0 #000,  
+        2px -2px 0 #000,  
+        -2px 2px 0 #000;
+}
+
+.game-board-square .symbol {
+    position: absolute; /* Add absolute positioning for the symbol */
+    color: black; /* Change this to the desired color for the symbol */
+    font-size: 55px; /* Adjust size as needed */
+    font-weight: 200;
+    opacity: 80%;
+    height: 50px;
+    transform: translateY(-33%);
+    text-shadow:
+        2px 2px 0 white,  
+        -2px -2px 0 white,  
+        2px -2px 0 white,  
+        -2px 2px 0 white !important;
+}
+
+.game-board-row .playable {
+    border-color: white !important;
+    box-shadow: 0 0 10px white; /* Add shadow for clickable squares */
+}
+  
+.game-board-row .playable:hover {
+    opacity: 50%;
+    cursor: pointer;
+    transform: scale(1.05); /* Slightly scale up the tile on hover */
+}
+
+
+/* Cards */
+.cards-container {
+    display: flex;
+    width: 100%;
+    height: 350px;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.card {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    background: white;
+    height: 90px;
+    width: 60px;
+    border-radius: 5px;
+    border: 1px solid black;
+    box-shadow: 0 0 30px transparentize(white, 0.8);
+    margin: 2px;
+    color: black;
+    font-family: 'Yatra One', system-ui;
+    font-weight: 400;
+    font-size: 40px;
+    display: flex;
+    transform: translate(0%, 0%) rotate(calc(15deg * (var(--i) - var(--base))));
+    transform-origin: center 150%;
+}
+
+.card-selected{
+    border: 2px solid red;
+}
+
+.card::after {
+    content: attr(data-content);
+    position: absolute;
+    top: 10%;
+    left: 30%;
+    font-size: 120px;
+    justify-content: center;
+    align-items: center;
+}
+
+.card:hover {
+    z-index: 40;
+    transform: translate(0%, -20%) rotate(calc(15deg * (var(--i) - var(--base)))) scale(1);
+}
+
+/* Player */
+.player-info-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.test-player{
+    width: 100%;
+    display: flex;
+}
+
+/* Player Board */
+.player-board-container{
+    width: 100px;
+    height: 150px;
+    position: relative;
+    border: 1px solid white;
+    margin: 10px;
+}
+
+.player-board-color {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-weight: 800;
+    font-size: 20px;
+}
+
+.player-board-top{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 25%;
+    border-radius: 0 0 40px 40px;
+}
+
+.player-board-bottom{
+    position: absolute;
+    top: 75%;
+    left: 0;
+    width: 100%;
+    height: 25%;
+    border-radius: 40px 40px 0 0;
+}
+
+.player-board-right{
+    position: absolute;
+    top: 20%;
+    left: 70%;
+    width: 30%;
+    height: 60%;
+    border-radius: 40px 0 0 40px;
+}
+
+.player-board-left{
+    position: absolute;
+    top: 20%;
+    left: 0;
+    width: 30%;
+    height: 60%;
+    border-radius: 0 40px 40px 0;
+}
+
+.player-board-bets {
+    position: relative;
+    top: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.player-board-bets .bet-selected {
+    color: red;
+    font-weight: 800;
+    text-decoration: underline;
+}
+
+.player-sets-collected {
+    display: inline-block;
+    position: relative;
+}
+
+.player-sets-collected-icon {
+    font-size: 40px;
+}
+
+.player-sets-collected .sets-collected-tooltip{
+    visibility: hidden;
+    width: 100px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 5px 10px;
+    
+    position: absolute; /* Positioned relative to the parent div */
+    bottom: 100%; /* Position the tooltip above the icon */
+    left: 50%; /* Center the tooltip horizontally relative to the icon */
+    z-index: 1;
+
+    /* Transition */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.player-sets-collected:hover .sets-collected-tooltip{
+    visibility: visible;
+    opacity: 1;
+  }
+
+/* Scorecard */
+.scorecard-container {
+    padding: 20px;
+    border: 1px solid white;
+    position: absolute;
+    left: 15%;
+    top: 20%;
+    z-index: 140;
+    background-color: silver;
+    font-family: 'Yatra One', system-ui;
+    align-items: center;
+    color: Black;
+    display: flex;
+    flex-direction: column;
+}
+
+.scorecard-hidden {
+    display: none;
+}
+
+.scorecard-heading {
+    font-size: 40px;
+    font-weight: 800;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.scorecard-table-container {
+    font-size: 18px;
+    padding-bottom: 10px;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  th {
+    background-color: #f4f4f4;
+  }
+  
+  th[rowspan="2"] {
+    vertical-align: middle;
+  }
+  
+  /* Assign widths to specific columns */
+  th:first-child, td:first-child { /* Player column */
+    width: 20%;
+  }
+  
+  th:nth-child(2), th:nth-child(3), td:nth-child(2), td:nth-child(3) { /* Round 1 columns */
+    width: 15%;
+  }
+  
+  th:nth-child(4), th:nth-child(5), td:nth-child(4), td:nth-child(5) { /* Round 2 columns */
+    width: 15%;
+  }
+
+  .scorecard-close {
+    position: absolute;
+    left: 90%;
+    font-size: 24px;
+  }
+
+  .scorecard-close:hover {
+    cursor: pointer;
+  }
+
+  .scorecard-toggle {
+    position: relative;
+    top: 6%;
+    left: 90%;
+    font-size: 24px;
+    width: fit-content;
+  }

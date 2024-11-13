@@ -3,4 +3,5 @@ from .views import index
 
 urlpatterns = [
     path('', index),
+    path('game/<str:game_id>/', index),
 ]

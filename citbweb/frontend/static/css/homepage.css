@@ -1,0 +1,82 @@
+.hp-container {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+
+.hp-background
+{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: animate 240s linear infinite;
+}
+
+
+@keyframes animate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+    
+}
+.hp-background span {
+    position: absolute;
+    width: 800px;
+    height: 150vh;
+    /* background: red; */
+    /* border: 2px solid black; */
+    transform: translate(-51%, -51%) rotate(calc(15deg * var(--i)));
+    transform-origin: bottom right;
+}
+.hp-background span::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-bottom-left-radius: 800px;
+    box-shadow: -90px -90px 0 89.5px rgb(232, 59, 59);
+}
+.hp-background span:nth-child(4n):before {
+    box-shadow: -90px -90px 0 89.5px rgb(44, 130, 196);
+}
+.hp-background span:nth-child(4n+1):before {
+    box-shadow: -90px -90px 0 89.5px rgb(35, 180, 19);
+}
+.hp-background span:nth-child(4n+2):before {
+    box-shadow: -90px -90px 0 89.5px rgb(225, 255, 29);
+}
+
+
+.hp-content {
+    display: flex;
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    flex-direction: column;
+}
+
+.hp-content h1 {
+    font-family: "Itim", cursive;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 64px;
+    color: rgb(244, 135, 51);
+    background-color: rgb(236, 204, 166);
+    padding: 20px;
+}
+
+.hp-content img {
+    width: auto;
+    height: 60%;
+    margin-bottom: 2%;
+}
