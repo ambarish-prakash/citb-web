@@ -359,6 +359,12 @@
     opacity: 1;
   }
 
+.player-name-div:hover .starting-player-tooltip{
+  visibility: visible;
+  opacity: 1;
+  cursor: default;
+}
+
 /* Scorecard */
 .scorecard-container {
     padding: 20px;

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Cards from './Cards';
 import PlayerInfo from './PlayerInfo';
+import CardPlayArea from './CardPlayArea';
 
 const PlayArea = ( {game, gameId, playerSymbols} ) => {
     const [players, setPlayers] = useState(game.players);
@@ -20,28 +21,33 @@ const PlayArea = ( {game, gameId, playerSymbols} ) => {
                           canBet={playerNumbers[0] === 0 && game.turn_number === 1}
                           gameId={gameId}
                           playerSymbol={playerSymbols[playerNumbers[0]]}
+                          isStartingPlayer={game.starting_player_idx === 0}
                 />
             </div>
             <div className="center-player-area">
                 <PlayerInfo playerInfo={players[1]} 
                             key={playerNumbers[1]}
-                            canBet={playerNumbers[0] === 0 && game.turn_number === 1}
+                            canBet={playerNumbers[1] === 0 && game.turn_number === 1}
                             gameId={gameId}
                             playerSymbol={playerSymbols[playerNumbers[1]]}
+                            isStartingPlayer={game.starting_player_idx === 1}
                     />
-                <PlayerInfo playerInfo={players[2]} 
-                        key={playerNumbers[2]}
-                        canBet={playerNumbers[0] === 0 && game.turn_number === 1}
-                        gameId={gameId}
-                        playerSymbol={playerSymbols[playerNumbers[2]]}
+                <CardPlayArea></CardPlayArea>
+                <PlayerInfo playerInfo={players[3]} 
+                            key={playerNumbers[3]}
+                            canBet={playerNumbers[3] === 0 && game.turn_number === 1}
+                            gameId={gameId}
+                            playerSymbol={playerSymbols[playerNumbers[3]]}
+                            isStartingPlayer={game.starting_player_idx === 3}
                 />
             </div>
             <div className="right-player-area">
-                <PlayerInfo playerInfo={players[3]} 
-                            key={playerNumbers[3]}
-                            canBet={playerNumbers[0] === 0 && game.turn_number === 1}
-                            gameId={gameId}
-                            playerSymbol={playerSymbols[playerNumbers[3]]}
+                <PlayerInfo playerInfo={players[2]} 
+                        key={playerNumbers[2]}
+                        canBet={playerNumbers[2] === 0 && game.turn_number === 1}
+                        gameId={gameId}
+                        playerSymbol={playerSymbols[playerNumbers[2]]}
+                        isStartingPlayer={game.starting_player_idx === 2}
                 />
             </div>
         </div>

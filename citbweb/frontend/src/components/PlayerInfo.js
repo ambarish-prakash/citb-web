@@ -10,7 +10,7 @@ import Filter6Icon from '@mui/icons-material/Filter6';
 import Filter7Icon from '@mui/icons-material/Filter7';
 import Filter8Icon from '@mui/icons-material/Filter8';
 
-const PlayerInfo = ({ playerInfo, canBet, gameId, playerSymbol }) => {
+const PlayerInfo = ({ playerInfo, canBet, gameId, playerSymbol, isStartingPlayer }) => {
     const [betValue, setBetValue] = useState(playerInfo.bet);
 
     const handleBetSelected = (newValue) => {
@@ -94,13 +94,24 @@ const PlayerInfo = ({ playerInfo, canBet, gameId, playerSymbol }) => {
           };
       }
     };
+
+    const startingPlayerIcon = () => {
+      switch (isStartingPlayer) {
+        case true:
+          return "👑";
+        default:
+          return "";
+      }
+    };
   
     // Destructure the result of renderIconAndTooltip
     const { icon, tooltip } = renderIconAndTooltip();
 
     return (
         <div className='player-info-container'>
-            <div> {playerInfo.nickname} - {playerSymbol} </div>
+            <div className='player-name-div'>
+              <span className="starting-player-tooltip" title="Starting Player">{startingPlayerIcon()}</span> {playerInfo.nickname} - {playerSymbol}
+            </div>
             <PlayerBoard colors={playerInfo.valid_colors} canBet={canBet} betValue={betValue} onUpdateBet={handleBetSelected}/>
             <div className="player-sets-collected">
               {icon}
