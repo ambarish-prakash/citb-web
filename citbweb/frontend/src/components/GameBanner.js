@@ -3,7 +3,8 @@ import React from 'react';
 const GameBanner = ( {bannerText} ) => {
     return (
         <div className="game-banner">
-            { bannerText }
+            <div> { bannerText } </div>
+            <div className="game-banner-line"></div>
         </div>
     );
 }

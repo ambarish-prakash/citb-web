@@ -1,0 +1,51 @@
+import React, { useState, useEffect } from 'react';
+import Cards from './Cards';
+import PlayerInfo from './PlayerInfo';
+
+const PlayArea = ( {game, gameId, playerSymbols} ) => {
+    const [players, setPlayers] = useState(game.players);
+    const [playerNumbers, setPlayerNumbers] = useState(game.players.map(player => player.player_number));
+
+
+    useEffect(() => {
+        console.log(game);
+    });
+
+    return (
+        <div className="play-area-container">
+            <div className="left-player-area">
+                <Cards cards={game.private_info.hand} canDiscard={game.turn_number === 0} gameId={gameId} />
+                <PlayerInfo playerInfo={players[0]} 
+                          key={playerNumbers[0]}
+                          canBet={playerNumbers[0] === 0 && game.turn_number === 1}
+                          gameId={gameId}
+                          playerSymbol={playerSymbols[playerNumbers[0]]}
+                />
+            </div>
+            <div className="center-player-area">
+                <PlayerInfo playerInfo={players[1]} 
+                            key={playerNumbers[1]}
+                            canBet={playerNumbers[0] === 0 && game.turn_number === 1}
+                            gameId={gameId}
+                            playerSymbol={playerSymbols[playerNumbers[1]]}
+                    />
+                <PlayerInfo playerInfo={players[2]} 
+                        key={playerNumbers[2]}
+                        canBet={playerNumbers[0] === 0 && game.turn_number === 1}
+                        gameId={gameId}
+                        playerSymbol={playerSymbols[playerNumbers[2]]}
+                />
+            </div>
+            <div className="right-player-area">
+                <PlayerInfo playerInfo={players[3]} 
+                            key={playerNumbers[3]}
+                            canBet={playerNumbers[0] === 0 && game.turn_number === 1}
+                            gameId={gameId}
+                            playerSymbol={playerSymbols[playerNumbers[3]]}
+                />
+            </div>
+        </div>
+    );
+}
+
+export default PlayArea;

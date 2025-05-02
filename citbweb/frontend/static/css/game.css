@@ -38,6 +38,16 @@
     font-family: 'Yatra One', system-ui;
     padding: 4px;
     animation: blinkBannerText 2s infinite;
+    position: relative;
+}
+
+.game-banner-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: black;
 }
 
 @keyframes blinkBannerText {
@@ -145,20 +155,38 @@
     transform: scale(1.05); /* Slightly scale up the tile on hover */
 }
 
+/* Play Area */
+
+.play-area-container {
+    display: flex;
+}
+
+.left-player-area {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+
+.center-player-area, .right-player-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
 
 /* Cards */
 .cards-container {
     display: flex;
     width: 100%;
-    height: 350px;
+    height: 200px;
     flex-wrap: wrap;
     position: relative;
+    margin-bottom: 20px;
 }
 
 .card {
     position: absolute;
-    top: 20%;
-    left: 20%;
+    top: 10%;
+    left: 40%;
     background: white;
     height: 90px;
     width: 60px;
@@ -194,6 +222,19 @@
     transform: translate(0%, -20%) rotate(calc(15deg * (var(--i) - var(--base)))) scale(1);
 }
 
+.discard-card-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 40%;
+}
+
+.card-space-adder {
+    width: 100%;
+    height: 5px;
+}
+
 /* Player */
 .player-info-container {
     align-items: center;
@@ -208,8 +249,8 @@
 
 /* Player Board */
 .player-board-container{
-    width: 100px;
-    height: 150px;
+    width: 150px;
+    height: 100px;
     position: relative;
     border: 1px solid white;
     margin: 10px;
@@ -227,44 +268,42 @@
 .player-board-top{
     position: absolute;
     top: 0;
-    left: 0;
-    width: 100%;
+    left: 15%;
+    width: 70%;
     height: 25%;
     border-radius: 0 0 40px 40px;
 }
 
 .player-board-bottom{
     position: absolute;
-    top: 75%;
-    left: 0;
-    width: 100%;
-    height: 25%;
+    top: 80%;
+    left: 15%;
+    width: 70%;
+    height: 20%;
     border-radius: 40px 40px 0 0;
 }
 
 .player-board-right{
     position: absolute;
-    top: 20%;
-    left: 70%;
-    width: 30%;
-    height: 60%;
+    left: 80%;
+    width: 20%;
+    height: 100%;
     border-radius: 40px 0 0 40px;
 }
 
 .player-board-left{
     position: absolute;
-    top: 20%;
     left: 0;
-    width: 30%;
-    height: 60%;
+    width: 20%;
+    height: 100%;
     border-radius: 0 40px 40px 0;
 }
 
 .player-board-bets {
     position: relative;
-    top: 25%;
+    top: 30%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     font-size: 20px;
@@ -275,6 +314,15 @@
     color: red;
     font-weight: 800;
     text-decoration: underline;
+}
+
+.player-board-bets .player-board-bet {
+    cursor: pointer;
+}
+
+.player-board-bet {
+    margin-left: 5px;
+    margin-top: 10px;
 }
 
 .player-sets-collected {

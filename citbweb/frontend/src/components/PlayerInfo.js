@@ -104,7 +104,7 @@ const PlayerInfo = ({ playerInfo, canBet, gameId, playerSymbol }) => {
             <PlayerBoard colors={playerInfo.valid_colors} canBet={canBet} betValue={betValue} onUpdateBet={handleBetSelected}/>
             <div className="player-sets-collected">
               {icon}
-              <span class="sets-collected-tooltip">{tooltip}</span>
+              <span className="sets-collected-tooltip">{tooltip}</span>
             </div>
             {canBet && <button onClick={submitBet} disabled={betValue === 0}> Bet {betValue} </button>}
         </div>

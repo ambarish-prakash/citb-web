@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import GameBoard from './GameBoard';
+import PlayArea from './PlayArea';
 import PlayerInfo from './PlayerInfo';
 import Cards from './Cards';
 import Logs from './Logs';
@@ -67,7 +68,7 @@ const GamePage = () => {
       }
       setBannerText(message);
     } else if (game.turn_number === 0) {
-      setBannerText('You must discard a card');
+      setBannerText('You must choose and discard a card');
     } else if (game.turn_number === 1) {
       setBannerText('You must set a bet');
     } else {
@@ -162,7 +163,10 @@ const GamePage = () => {
                       playerColors={playerColors}
                       playerSymbols={playerSymbols}
           />
-          <div className='test-player'>
+
+          <PlayArea game={game} gameId={gameId} playerSymbols={playerSymbols} />
+
+          {/* <div className='test-player'>
           {
             game.players.map((playerInfo, playerNumber) => (
               <PlayerInfo playerInfo={playerInfo} 
@@ -176,6 +180,8 @@ const GamePage = () => {
           </div>
 
           <Cards cards={game.private_info.hand} canDiscard={game.turn_number === 0} gameId={gameId} />
+
+          */}
           
           <p>Game Data: {JSON.stringify(game)}</p>
           <form onSubmit={handleSubmit}>

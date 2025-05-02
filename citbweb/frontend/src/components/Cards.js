@@ -82,9 +82,10 @@ const Cards = ({cards, canDiscard, gameId}) => {
                 ))
             } */}
             {createCards()}
+            <div className='card-space-adder'></div>
             {canDiscard && (
-                <div>
-                    <button disabled={selectedCard === -1} onClick={discardCard}>
+                <div className='discard-card-button'>
+                    <button onClick={discardCard} disabled={selectedCard === -1}>
                         Discard {cards[selectedCard]}
                     </button>
                 </div>
