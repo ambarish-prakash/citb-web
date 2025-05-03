@@ -73,6 +73,7 @@ const Cards = ({cards, canDiscard, gameId}) => {
     };
 
     return (
+      <div>
         <div className='cards-container'>
             {/* {
                 cards.map((value, idx) => (
@@ -82,15 +83,15 @@ const Cards = ({cards, canDiscard, gameId}) => {
                 ))
             } */}
             {createCards()}
-            <div className='card-space-adder'></div>
-            {canDiscard && (
-                <div className='discard-card-button'>
-                    <button onClick={discardCard} disabled={selectedCard === -1}>
-                        Discard {cards[selectedCard]}
-                    </button>
-                </div>
-            )}
         </div>
+        {canDiscard && (
+            <div className='discard-card-button'>
+                <button onClick={discardCard} disabled={selectedCard === -1}>
+                    Discard {cards[selectedCard]}
+                </button>
+            </div>
+        )}
+      </div>
     );
 };
 

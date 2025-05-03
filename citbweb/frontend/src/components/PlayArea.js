@@ -42,6 +42,7 @@ const PlayArea = ( {game, gameId, playerSymbols} ) => {
                 />
             </div>
             <div className="right-player-area">
+                <div style={{ height: '200px' }}></div>
                 <PlayerInfo playerInfo={players[2]} 
                         key={playerNumbers[2]}
                         canBet={playerNumbers[2] === 0 && game.turn_number === 1}

@@ -175,18 +175,43 @@
 
 /* Cards */
 .cards-container {
-    display: flex;
-    width: 100%;
-    height: 200px;
-    flex-wrap: wrap;
     position: relative;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: visible;
     margin-bottom: 20px;
+    flex-wrap: nowrap;
 }
 
 .card {
     position: absolute;
     top: 10%;
-    left: 40%;
+    left: 50%;
+    transform: translateX(-50%) rotate(calc(15deg * (var(--i) - var(--base))));
+    transform-origin: center 150%;
+
+    background: white;
+    height: 90px;
+    width: 60px;
+    border-radius: 5px;
+    border: 1px solid black;
+    box-shadow: 0 0 30px transparentize(white, 0.8);
+    margin: 2px;
+    color: black;
+    font-family: 'Yatra One', system-ui;
+    font-weight: 400;
+    font-size: 40px;
+    display: flex;
+}
+
+
+.card-old {
+    position: absolute;
+    top: 10%;
+    left: 43%;
     background: white;
     height: 90px;
     width: 60px;
@@ -211,15 +236,17 @@
     content: attr(data-content);
     position: absolute;
     top: 10%;
-    left: 30%;
+    left: 50%;
+    transform: translateX(-50%);
     font-size: 120px;
-    justify-content: center;
-    align-items: center;
+    pointer-events: none;
+    opacity: 0.2;
+    white-space: nowrap;
 }
 
 .card:hover {
     z-index: 40;
-    transform: translate(0%, -20%) rotate(calc(15deg * (var(--i) - var(--base)))) scale(1);
+    transform: translateX(-50%) translateY(-20%) rotate(calc(15deg * (var(--i) - var(--base)))) scale(1);
 }
 
 .discard-card-button {
@@ -227,12 +254,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    margin-top: 40%;
-}
-
-.card-space-adder {
-    width: 100%;
-    height: 5px;
+    margin-bottom: 20px;
 }
 
 /* Player */
@@ -363,6 +385,15 @@
   visibility: visible;
   opacity: 1;
   cursor: default;
+}
+
+/* Card Play Area */
+
+.card-play-area {
+    width: 100%;
+    height: 200px;
+    border: 1px solid white;
+    margin: 10px;
 }
 
 /* Scorecard */
