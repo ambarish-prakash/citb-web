@@ -39,7 +39,7 @@ class Board:
                 to_visit.remove(idx1)
                 ct+=1
                 for idx2 in indices:
-                    if(idx2 in visited):
+                    if(idx2 in visited or idx2 in to_visit):
                         continue
 
                     if(self._adjacent_indices(idx1, idx2)):

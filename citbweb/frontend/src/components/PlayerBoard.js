@@ -18,6 +18,16 @@ const PlayerBoard = ({ colors, canBet, betValue, onUpdateBet }) => {
         setBetVal(newBet);
     };
 
+    const getBetClassName = (betNumber) => {
+      if (canBet && betVal === 0) {
+        return 'player-board-bet bet-to-select';
+      } else if (betVal === betNumber) {
+        return 'player-board-bet bet-selected';
+      } else {
+        return 'player-board-bet';
+      }
+    };
+
   return (
     <div className='player-board-container'>
       <div className='player-board-color player-board-top' style={{ backgroundColor: getColor(0, 'FireBrick') }}> R </div>
@@ -26,17 +36,17 @@ const PlayerBoard = ({ colors, canBet, betValue, onUpdateBet }) => {
       <div className='player-board-color player-board-bottom' style={{ backgroundColor: getColor(3, 'Gold') }}> Y </div>
 
       <div className='player-board-bets'>
-        <div className={betVal === 1 ? 'player-board-bet bet-selected' : 'player-board-bet'}
-             onClick={() => updateBet(1)}>
-                1
+        <div className={getBetClassName(1)}
+          onClick={() => updateBet(1)}>
+          1
         </div>
-        <div className={betVal === 2 ? 'player-board-bet bet-selected' : 'player-board-bet'}
-             onClick={() => updateBet(2)}>
-                2
+        <div className={getBetClassName(2)}
+          onClick={() => updateBet(2)}>
+          2
         </div>
-        <div className={betVal === 3 ? 'player-board-bet bet-selected' : 'player-board-bet'}
-             onClick={() => updateBet(3)}>
-                3
+        <div className={getBetClassName(3)}
+          onClick={() => updateBet(3)}>
+          3
         </div>
       </div>
     </div>

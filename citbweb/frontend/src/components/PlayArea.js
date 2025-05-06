@@ -32,7 +32,9 @@ const PlayArea = ( {game, gameId, playerSymbols} ) => {
                             playerSymbol={playerSymbols[playerNumbers[1]]}
                             isStartingPlayer={game.starting_player_idx === 1}
                     />
-                <CardPlayArea></CardPlayArea>
+                <CardPlayArea playedMoves={game.played_moves}
+                              startingPlayerIdx={game.starting_player_idx}
+                />
                 <PlayerInfo playerInfo={players[3]} 
                             key={playerNumbers[3]}
                             canBet={playerNumbers[3] === 0 && game.turn_number === 1}

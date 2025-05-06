@@ -182,7 +182,7 @@
     justify-content: center;
     align-items: flex-start;
     overflow: visible;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     flex-wrap: nowrap;
 }
 
@@ -207,29 +207,25 @@
     display: flex;
 }
 
-
-.card-old {
-    position: absolute;
-    top: 10%;
-    left: 43%;
-    background: white;
-    height: 90px;
-    width: 60px;
-    border-radius: 5px;
-    border: 1px solid black;
-    box-shadow: 0 0 30px transparentize(white, 0.8);
-    margin: 2px;
-    color: black;
-    font-family: 'Yatra One', system-ui;
-    font-weight: 400;
-    font-size: 40px;
-    display: flex;
-    transform: translate(0%, 0%) rotate(calc(15deg * (var(--i) - var(--base))));
-    transform-origin: center 150%;
-}
-
 .card-selected{
     border: 2px solid red;
+}
+
+.card-to-discard {
+    border: 2px solid red;
+    animation: blink 2s infinite;
+  }
+  
+@keyframes blink {
+  0% {
+    border-color: red;
+  }
+  50% {
+    border-color: black;
+  }
+  100% {
+    border-color: red;
+  }
 }
 
 .card::after {
@@ -337,6 +333,24 @@
     font-weight: 800;
     text-decoration: underline;
 }
+
+.player-board-bets .bet-to-select {
+    color: red;
+    font-weight: 800;
+    animation: blinktext 2s infinite;
+}
+
+@keyframes blinktext {
+    0% {
+      color: red;
+    }
+    50% {
+      color: white;
+    }
+    100% {
+      color: red;
+    }
+  }
 
 .player-board-bets .player-board-bet {
     cursor: pointer;
@@ -463,6 +477,10 @@ th, td {
 
   .scorecard-close:hover {
     cursor: pointer;
+  }
+
+  .scorecard-toggle-container{
+    position: relative;
   }
 
   .scorecard-toggle {

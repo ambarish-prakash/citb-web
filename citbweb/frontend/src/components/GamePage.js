@@ -145,8 +145,10 @@ const GamePage = () => {
       <div className="game-page-container">
         <div className='game-container'>
 
-          <div className='scorecard-toggle'>
-            <button onClick={showScorecard}>Scorecard</button>
+          <div className='scorecard-toggle-container'>
+            <div className='scorecard-toggle'>
+              <button onClick={showScorecard}>Scorecard</button>
+            </div>
           </div>
 
           <Scorecard  playerInfo={game.players}

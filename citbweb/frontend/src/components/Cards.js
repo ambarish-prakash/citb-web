@@ -61,9 +61,11 @@ const Cards = ({cards, canDiscard, gameId}) => {
     const createCards = () => {
         const card_divs = [];
         for (let i = 0; i < cards.length; i++) {
-            const val = cards[i]
+            const val = cards[i];
+            const shouldBlink = canDiscard && selectedCard === -1;
+            const className = i === selectedCard ? 'card card-selected' : shouldBlink ? 'card card-to-discard' : 'card';
             card_divs.push(<div key={i} 
-                                className={i === selectedCard ? 'card card-selected' : 'card'}
+                                className={className}
                                 style={{ '--i': i, '--base': (cards.length-1)/2 }}
                                 onClick={selectCard(i)}> 
                                     {val} 
