@@ -408,6 +408,62 @@
     height: 200px;
     border: 1px solid white;
     margin: 10px;
+    position: relative;
+}
+
+.played-card {
+    position: absolute;
+    left: 40%;
+    transform-origin: center 150%;
+
+    height: 30%;
+    width: 15%;
+    border-radius: 5px;
+    border: 1px solid black;
+    box-shadow: 0 0 30px transparentize(white, 0.8);
+    margin: 2px;
+    color: white;
+    font-family: 'Yatra One', system-ui;
+    font-weight: 400;
+    font-size: 20px;
+    
+    align-items: center;
+    text-align: center
+}
+
+.played-card-top {
+    top: 10%;
+}
+
+.played-card-left {
+    top: 0%;
+    transform: rotate(-90deg);
+}
+
+.played-card-right {
+    top: 0%;
+    transform: rotate(90deg);
+}
+
+.played-card-bottom {
+    top: -10%;
+    transform: rotate(180deg);
+}
+
+.played-card-blue {
+    background: blue;
+}
+
+.played-card-red {
+    background: red;
+}
+
+.played-card-green {
+    background: green;
+}
+
+.played-card-yellow {
+    background: yellow;
 }
 
 /* Scorecard */
